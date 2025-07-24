@@ -1,0 +1,16 @@
+.{
+    .name = .spnav,
+    .version = "1.2.0",
+    .fingerprint = 0x94a6a55bafd56b9a, // Changing this has security and trust implications.
+    .minimum_zig_version = "0.14.1",
+    .dependencies = .{
+        .libspnav = .{
+            .url = "https://github.com/FreeSpacenav/libspnav/releases/download/v1.2/libspnav-1.2.tar.gz",
+            .hash = "N-V-__8AANrhAQAhJcJqq5n590YQEg2G5EenhQlU-SYmA-4r",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon"
+    },
+}
