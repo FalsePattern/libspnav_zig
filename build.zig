@@ -3,8 +3,16 @@ const std = @import("std");
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
-    const x11 = b.option(bool, "x11", "X11 communication mode.") orelse false;
-    const magellan = b.option(bool, "magellan", "Include the original Magellan SDK compatibility wrapper. Requires X11.") orelse false;
+    const x11 = b.option(
+        bool,
+        "x11",
+        "X11 communication mode.",
+    ) orelse false;
+    const magellan = b.option(
+        bool,
+        "magellan",
+        "Include the original Magellan SDK compatibility wrapper. Requires X11.",
+    ) orelse false;
 
     if (magellan and !x11) {
         @panic("libspnav magellan compatibility requires x11!");
@@ -32,11 +40,11 @@ pub fn build(b: *std.Build) void {
             "proto.c",
             "spnav.c",
             "spnav_magellan.c",
-            "util.c"
+            "util.c",
         } else &.{
             "proto.c",
             "spnav.c",
-            "util.c"
+            "util.c",
         },
     });
     lib.addIncludePath(header.getDirectory());
